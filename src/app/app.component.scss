@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+.content {
+  display: flex;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+}
+.xs-center {
+  display: flex;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+p {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+.form-item {
+  label {
+    color: #666;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  input {
+    flex: 1;
+    outline: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.7rem;
+  }
+}

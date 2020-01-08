@@ -1,0 +1,33 @@
+<div class="DataPicker" *ngIf="!error">
+  <div class="MonthSelect">
+    <span>
+      <a class="btn btn-round" (click)="moveMonth(-1)"><</a>
+    </span>
+    <!-- думаю пайпы тут излишни | current.format("MMMM YYYY") -->
+    <span>{{ current | moment }}</span>
+    <span>
+      <a class="btn btn-round" (click)="moveMonth(1)">></a>
+    </span>
+  </div>
+
+  <div class="RangeSelect">
+    <!-- дни недели берем из первой недели -->
+    <div class="week">
+      <a *ngFor="let d of month[0]" class="day">{{ d.day | moment: "dd" }}</a>
+    </div>
+    <div *ngFor="let week of month" class="week">
+      <a
+        *ngFor="let d of week"
+        [ngClass]="{
+          current: d.current,
+          active: d.active && !d.select,
+          range: d.select
+        }"
+        (click)="choiceDay(d)"
+        class="day"
+      >
+        <span>{{ d.day | moment: "DD" }}</span>
+      </a>
+    </div>
+  </div>
+</div>
